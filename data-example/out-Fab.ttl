@@ -1,0 +1,104 @@
+###############
+# My proposal:
+###############
+
+#generic for the user
+<https://www.facebook.com/ademarc#me> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<https://www.facebook.com/ademarc#me> <http://schema.org/name> "Ademar Crotti Junior" .
+
+#for each Reaction (the object at the moment is a blanck node as it seems we do not have a URI for that... )
+<https://www.facebook.com/ademarc/my_reactions/1439398907> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/LikeAction> .
+<https://www.facebook.com/ademarc/my_reactions/1439398907> <http://schema.org/agent> <https://www.facebook.com/ademarc#me> .
+<https://www.facebook.com/ademarc/my_reactions/1439398907> <http://schema.org/object> [ 
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Reaction> ;
+	<http://schema.org/name> "Ademar Crotti Junior likes The Economist's photo." . 
+	] .
+<https://www.facebook.com/ademarc/my_reactions/1439398907> <http://schema.org/startTime> "1439398907" .
+
+#for each PageLike
+<https://www.facebook.com/ademarc/page_likes/1291937469> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/LikeAction> .
+<https://www.facebook.com/ademarc/page_likes/1291937469> <http://schema.org/agent> <https://www.facebook.com/ademarc#me> .
+<https://www.facebook.com/ademarc/page_likes/1291937469> <http://schema.org/object> [ 
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/PageLike> ;
+	<http://schema.org/name> "Rock in Rio" . 
+	] .
+<https://www.facebook.com/ademarc/page_likes/1291937469> <http://schema.org/startTime> "1291937469" .
+
+#for each Post
+<https://www.facebook.com/ademarc/posts/1445190884> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/SocialMediaPosting> .
+<https://www.facebook.com/ademarc/posts/1445190884> <http://schema.org/author> <https://www.facebook.com/ademarc#me> .
+<https://www.facebook.com/ademarc/posts/1445190884> <http://schema.org/headline> "Ademar Crotti Junior added a new photo." .
+<https://www.facebook.com/ademarc/posts/1445190884> <http://schema.org/datePublished> "1445190884" .
+<https://www.facebook.com/ademarc/posts/1445190884> <http://schema.org/contentLocation> <http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> .
+
+#for each Location
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://schema.org/latitude> "38.6974487" .
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://schema.org/longitude> "-9.2032404" .
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Place> .
+
+
+
+
+###########################
+#Earlier attempt by Ademar:
+###########################
+
+<http://example.org/user/location/Aran%20Islands> <http://example.com/lat> "53.119384165748" .
+<http://example.org/user/location/Aran%20Islands> <http://example.com/lon> "-9.6659074822642" .
+<http://example.org/user/location/Aran%20Islands> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/location/Gamla%20Stan%20%28Stockholm's%20Old%20Town%29> <http://example.com/lat> "59.324002369937" .
+<http://example.org/user/location/Gamla%20Stan%20%28Stockholm's%20Old%20Town%29> <http://example.com/lon> "18.070568174612" .
+<http://example.org/user/location/Gamla%20Stan%20%28Stockholm's%20Old%20Town%29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/location/Lisbon%2C%20Portugal> <http://example.com/lat> "38.7261" .
+<http://example.org/user/location/Lisbon%2C%20Portugal> <http://example.com/lon> "-9.1394" .
+<http://example.org/user/location/Lisbon%2C%20Portugal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://example.com/lat> "38.6974487" .
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://example.com/lon> "-9.2032404" .
+<http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/location/Praia%20Da%20Joaquina> <http://example.com/lat> "-27.6046827" .
+<http://example.org/user/location/Praia%20Da%20Joaquina> <http://example.com/lon> "-48.46398" .
+<http://example.org/user/location/Praia%20Da%20Joaquina> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/location/Tower%20Bridge> <http://example.com/lat> "51.505657314136" .
+<http://example.org/user/location/Tower%20Bridge> <http://example.com/lon> "-0.075244009494781" .
+<http://example.org/user/location/Tower%20Bridge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Location> .
+<http://example.org/user/my_reactions/1439393847> <http://example.com/actor> "Ademar Crotti Junior" .
+<http://example.org/user/my_reactions/1439393847> <http://example.com/reaction> <http://example.org/reaction/LIKE> .
+<http://example.org/user/my_reactions/1439393847> <http://example.com/title> "Ademar Crotti Junior likes CartaCapital's photo." .
+<http://example.org/user/my_reactions/1439393847> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Reaction> .
+<http://example.org/user/my_reactions/1439398907> <http://example.com/actor> "Ademar Crotti Junior" .
+<http://example.org/user/my_reactions/1439398907> <http://example.com/reaction> <http://example.org/reaction/LIKE> .
+<http://example.org/user/my_reactions/1439398907> <http://example.com/title> "Ademar Crotti Junior likes The Economist's photo." .
+<http://example.org/user/my_reactions/1439398907> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Reaction> .
+<http://example.org/user/my_reactions/1439398936> <http://example.com/actor> "Ademar Crotti Junior" .
+<http://example.org/user/my_reactions/1439398936> <http://example.com/reaction> <http://example.org/reaction/LIKE> .
+<http://example.org/user/my_reactions/1439398936> <http://example.com/title> "Ademar Crotti Junior likes The Verge's link." .
+<http://example.org/user/my_reactions/1439398936> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Reaction> .
+<http://example.org/user/my_reactions/1451321605> <http://example.com/actor> "Ademar Crotti Junior" .
+<http://example.org/user/my_reactions/1451321605> <http://example.com/reaction> <http://example.org/reaction/LIKE> .
+<http://example.org/user/my_reactions/1451321605> <http://example.com/title> "Ademar Crotti Junior likes 9GAG's photo." .
+<http://example.org/user/my_reactions/1451321605> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Reaction> .
+<http://example.org/user/page_likes/1291937469> <http://example.com/page> "Rock in Rio" .
+<http://example.org/user/page_likes/1291937469> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/PageLike> .
+<http://example.org/user/page_likes/1291937945> <http://example.com/page> "Friends" .
+<http://example.org/user/page_likes/1291937945> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/PageLike> .
+<http://example.org/user/page_likes/1292799016> <http://example.com/page> "Breaking Bad" .
+<http://example.org/user/page_likes/1292799016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/PageLike> .
+<http://example.org/user/page_likes/1308177210> <http://example.com/page> "TheJournal.ie" .
+<http://example.org/user/page_likes/1308177210> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/PageLike> .
+<http://example.org/user/posts/1422121743> <http://example.com/location> <http://example.org/user/location/Praia%20Da%20Joaquina> .
+<http://example.org/user/posts/1422121743> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
+<http://example.org/user/posts/1433535105> <http://example.com/location> <http://example.org/user/location/Tower%20Bridge> .
+<http://example.org/user/posts/1433535105> <http://example.com/post> "London!" .
+<http://example.org/user/posts/1433535105> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
+<http://example.org/user/posts/1439117756> <http://example.com/location> <http://example.org/user/location/Aran%20Islands> .
+<http://example.org/user/posts/1439117756> <http://example.com/title> "Ademar Crotti Junior added a new photo." .
+<http://example.org/user/posts/1439117756> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
+<http://example.org/user/posts/1440103001> <http://example.com/location> <http://example.org/user/location/Gamla%20Stan%20%28Stockholm's%20Old%20Town%29> .
+<http://example.org/user/posts/1440103001> <http://example.com/title> "Ademar Crotti Junior added a new photo." .
+<http://example.org/user/posts/1440103001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
+<http://example.org/user/posts/1445092419> <http://example.com/location> <http://example.org/user/location/Lisbon%2C%20Portugal> .
+<http://example.org/user/posts/1445092419> <http://example.com/title> "Ademar Crotti Junior added a new photo." .
+<http://example.org/user/posts/1445092419> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
+<http://example.org/user/posts/1445190884> <http://example.com/location> <http://example.org/user/location/Past%C3%83%C2%A9is%20de%20Bel%C3%83%C2%A9m%20-%20P%C3%83%C2%A1gina%20Oficial> .
+<http://example.org/user/posts/1445190884> <http://example.com/title> "Ademar Crotti Junior added a new photo." .
+<http://example.org/user/posts/1445190884> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Post> .
