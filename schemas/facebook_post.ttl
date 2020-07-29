@@ -1,0 +1,124 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix : <http://example.com/facebook#> .
+
+# --- post ---
+
+:Post a rdfs:Class ;
+	rdfs:label "Post" .
+
+:post_timestamp a rdfs:Property ;
+	rdfs:label "post timestamp" ;
+	rdfs:domain :Post ;
+	rdfs:range xsd:dateTime .
+
+:post_data a rdfs:Property ;
+	rdfs:label "post data" ;
+	rdfs:domain :Post ;
+	rdfs:range xsd:string .
+
+:post_title a rdfs:Property ;
+	rdfs:label "post title" ;
+	rdfs:domain :Post ;
+	rdfs:range xsd:string .
+
+# --- attachments ---
+
+:Attachment a rdfs:Class ;
+	rdfs:label "Attachement" .
+
+# --- media ---
+
+:Media a rdfs:Class ;
+	rdfs:subClassOf :Attachement ;
+	rdfs:label "Media" .
+
+:media_title a rdfs:Property ;
+	rdfs:label "media title" ;
+	rdfs:domain :Media ;
+	rdfs:range xsd:string .
+
+:media_uri a rdfs:Property ;
+	rdfs:label "media uri" ;
+	rdfs:domain :Media ;
+	rdfs:range xsd:anyURI .
+
+:media_creation_timestamp a rdfs:Property ;
+	rdfs:label "media creation timestamp" ;
+	rdfs:domain :Media ;
+	rdfs:range xsd:dateTime .
+
+:MediaMetadata a rdfs:Class ;
+	rdfs:label "Media Metadata" .
+
+:media_metadata a rdfs:Property ;
+	rdfs:label "media metadata" ;
+	rdfs:domain :Media ;
+	rdfs:range :MediaMetadata .
+
+:PhotoMetadata a rdfs:Class ;
+	rdfs:subClassOf :MediaMetadata ;
+	rdfs:label "Photo Metadata" .
+
+:photo_upload_ip a rdfs:Property ;
+	rdfs:label "upload ip" ;
+	rdfs:domain :PhotoMetadata ;
+	rdfs:range xsd:string .
+
+# --- place ---
+
+:Place a rdfs:Class ;
+	rdfs:subClassOf :Attachement ;
+	rdfs:label "Place" .
+
+:place_name a rdfs:Property ;
+	rdfs:label "place name" ;
+	rdfs:domain :Place ;
+	rdfs:range xsd:string .
+
+:PlaceCoordinate a rdfs:Class ;
+	rdfs:label "Place Co-ordinate" .
+
+:place_coordinate a rdfs:Property ;
+	rdfs:label "place coordinates" ;
+	rdfs:range :PlaceCoordinate .
+
+:latitude a rdfs:Property ;
+	rdfs:label "latitude" ;
+	rdfs:domain :PlaceCoordinate ;
+	rdfs:range xsd:string .
+
+:longitude a rdfs:Property ;
+	rdfs:label "longitude" ;
+	rdfs:domain :PlaceCoordinate ;
+	rdfs:range xsd:string .
+
+:place_url a rdfs:Property ;
+	rdfs:label "place url" ;
+	rdfs:domain :Place ;
+	rdfs:range xsd:anyURI .
+
+:place_address a rdfs:Property ;
+	rdfs:label "place address" ;
+	rdfs:domain :Place ;
+	rdfs:range xsd:string .
+
+# --- External ---
+
+:External a rdfs:Class ;
+	rdfs:subClassOf :Attachement ;
+	rdfs:label "External" .
+
+:external_name a rdfs:Property ;
+	rdfs:label "external name" ;
+	rdfs:domain :External ;
+	rdfs:range xsd:string .
+
+:external_url a rdfs:Property ;
+	rdfs:label "external url" ;
+	rdfs:domain :External ;
+	rdfs:range xsd:anyURI .

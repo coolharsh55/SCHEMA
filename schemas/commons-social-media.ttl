@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix : <http://example.com/commons/social-media#> .
+
+:Post a rdfs:Class ;
+	rdfs:label "Post" .
+
+:timestamp a rdfs:Property ;
+	rdfs:label "post timestamp" ;
+	rdfs:domain :Post ;
+	rdfs:range xsd:dateTime .
+
+:text a rdfs:Property ;
+	rdfs:label "post contents" ;
+	rdfs:domain :Post ;
+	rdfs:range xsd:string .
+

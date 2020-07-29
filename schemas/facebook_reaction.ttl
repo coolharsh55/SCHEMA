@@ -1,0 +1,41 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix : <http://example.com/facebook#> .
+
+# --- reaction ---
+
+:Reaction a rdfs:Class ;
+	rdfs:label "Reaction" .
+
+:reaction_timestamp a rdfs:Property ;
+	rdfs:label "reaction timestamp" ;
+	rdfs:domain :Reaction ;
+	rdfs:range xsd:dateTime .
+
+:ReactionType a rdfs:Class ;
+	rdfs:label "Reaction Type" .
+
+:Reaction_LIKE a :ReactionType ;
+	rdfs:label "Like" .
+
+:reaction_type a rdfs:Property ;
+	rdfs:label "reaction type" ;
+	rdfs:domain :Reaction ;
+	rdfs:range :ReactionType .
+
+:Actor a rdfs:Class ;
+	rdfs:label "Actor" .
+
+:reaction_actor a rdfs:Property ;
+	rdfs:label "reaction actor" ;
+	rdfs:domain :Reaction ;
+	rdfs:range :Actor .
+
+:reaction_title a rdfs:Property ;
+	rdfs:label "reaction title" ;
+	rdfs:domain :Reaction ;
+	rdfs:range xsd:string .

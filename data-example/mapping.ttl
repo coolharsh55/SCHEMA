@@ -1,0 +1,146 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <http://example.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+
+@base <http://example.com/base/> .
+
+<TriplesMap1>
+  a rr:TriplesMap;
+        
+  rml:logicalSource [ 
+    rml:source "reactions.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.reactions[*]"
+  ] ;
+	
+  rr:subjectMap [ 
+    rr:template "http://example.org/user/my_reactions/{timestamp}" ;
+    rr:class ex:Reaction
+  ]; 
+	
+  rr:predicateObjectMap [ 
+    rr:predicate ex:reaction ; 
+    rr:objectMap [ 
+      rml:template "http://example.org/reaction/{data..reaction.reaction}" 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:actor ; 
+    rr:objectMap [ 
+      rml:reference "data..reaction.actor" 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:title ; 
+    rr:objectMap [ 
+      rml:reference "title" 
+    ]
+  ].
+
+
+<TriplesMap2>
+  a rr:TriplesMap;
+        
+  rml:logicalSource [ 
+    rml:source "page_likes.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.page_likes[*]"
+  ] ;
+  
+  rr:subjectMap [ 
+    rr:template "http://example.org/user/page_likes/{timestamp}" ;
+    rr:class ex:PageLike
+  ]; 
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:page ; 
+    rr:objectMap [ 
+      rml:reference "name" 
+    ]
+  ] ;
+  .
+
+
+  <TriplesMap3>
+  a rr:TriplesMap;
+        
+  rml:logicalSource [ 
+    rml:source "posts.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ] ;
+  
+  rr:subjectMap [ 
+    rr:template "http://example.org/user/posts/{timestamp}" ;
+    rr:class ex:Post
+  ]; 
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:title ; 
+    rr:objectMap [ 
+      rml:reference "title" 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:post ; 
+    rr:objectMap [ 
+      rml:reference "data..post" 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:location ; 
+    rr:objectMap [ 
+      rr:parentTriplesMap <TriplesMapLocation>;
+      rr:joinCondition [
+        rr:child "timestamp";
+        rr:parent "timestamp";
+      ]
+    ]
+  ] ;
+  .
+
+
+<TriplesMapLocation>
+  a rr:TriplesMap;
+        
+  rml:logicalSource [ 
+    rml:source "posts.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.[*]"
+  ] ;
+  
+  rr:subjectMap [ 
+    rr:template "http://example.org/user/location/{attachments..data..place.name}" ;
+    rr:class ex:Location
+  ]; 
+
+  # rr:predicateObjectMap [ 
+  #   rr:predicate ex:url ; 
+  #   rr:objectMap [ 
+  #     rml:reference "attachments..data..url" ;
+  #     # rr:template "{attachments..data..url}" ;
+  #     rr:termType rr:IRI
+  #   ]
+  # ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:lat ; 
+    rr:objectMap [ 
+      rml:reference "attachments..data..place.coordinate.latitude" 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [ 
+    rr:predicate ex:lon ; 
+    rr:objectMap [ 
+      rml:reference "attachments..data..place.coordinate.longitude" 
+    ]
+  ] ;
+.

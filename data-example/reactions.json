@@ -1,0 +1,52 @@
+{
+  "reactions": [
+    {
+      "timestamp": 1451321605,
+      "data": [
+        {
+          "reaction": {
+            "reaction": "LIKE",
+            "actor": "Ademar Crotti Junior"
+          }
+        }
+      ],
+      "title": "Ademar Crotti Junior likes 9GAG's photo."
+    },
+    {
+      "timestamp": 1439398936,
+      "data": [
+        {
+          "reaction": {
+            "reaction": "LIKE",
+            "actor": "Ademar Crotti Junior"
+          }
+        }
+      ],
+      "title": "Ademar Crotti Junior likes The Verge's link."
+    },
+    {
+      "timestamp": 1439398907,
+      "data": [
+        {
+          "reaction": {
+            "reaction": "LIKE",
+            "actor": "Ademar Crotti Junior"
+          }
+        }
+      ],
+      "title": "Ademar Crotti Junior likes The Economist's photo."
+    },
+    {
+      "timestamp": 1439393847,
+      "data": [
+        {
+          "reaction": {
+            "reaction": "LIKE",
+            "actor": "Ademar Crotti Junior"
+          }
+        }
+      ],
+      "title": "Ademar Crotti Junior likes CartaCapital's photo."
+   }
+  ]
+}
