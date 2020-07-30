@@ -1,0 +1,32 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix schema: <http://schema.org/> .
+
+@prefix : <http://example.com/commons/social-media#> .
+
+<http://schema.org/> {
+    schema:Person a rdfs:Class .
+
+    schema:SocialMediaPosting a rdfs:Class .
+
+    schema:Place a rdfs:Class .
+
+    schema:author a rdfs:Property ;
+        rdfs:domain schema:SocialMediaPosting ;
+        rdfs:range schema:Person .
+
+    schema:headline a rdfs:Property ;
+        rdfs:domain schema:SocialMediaPosting ;
+        rdfs:range xsd:string .
+
+    schema:datePublished a rdfs:Property ;
+        rdfs:domain schema:SocialMediaPosting ;
+        rdfs:range xsd:dateTime .
+
+    schema:location a rdfs:Property ;
+        rdfs:domain schema:SocialMediaPosting ;
+        rdfs:domain schema:Place .
+}
