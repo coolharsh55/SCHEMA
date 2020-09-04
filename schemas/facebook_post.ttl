@@ -6,119 +6,128 @@
 
 @prefix : <http://example.com/facebook#> .
 
+<http://example.com/facebook> a owl:Ontology ;
+    rdfs:label "Facebook Schema" .`
+
 # --- post ---
 
-:Post a rdfs:Class ;
+:Post a owl:Class ;
 	rdfs:label "Post" .
 
-:post_timestamp a rdfs:Property ;
+:post_timestamp a rdf:Property ;
 	rdfs:label "post timestamp" ;
 	rdfs:domain :Post ;
 	rdfs:range xsd:dateTime .
 
-:post_data a rdfs:Property ;
+:post_data a rdf:Property ;
 	rdfs:label "post data" ;
 	rdfs:domain :Post ;
 	rdfs:range xsd:string .
 
-:post_title a rdfs:Property ;
+:post_title a rdf:Property ;
 	rdfs:label "post title" ;
 	rdfs:domain :Post ;
 	rdfs:range xsd:string .
 
 # --- attachments ---
 
-:Attachment a rdfs:Class ;
-	rdfs:label "Attachement" .
+:Attachment a owl:Class ;
+	rdfs:label "Attachment" .
+
+:hasAttachment a rdf:Property ;
+    rdfs:label "has attachment" ;
+    rdfs:domain :Post ;
+    rdfs:range :Attachment .
 
 # --- media ---
 
-:Media a rdfs:Class ;
-	rdfs:subClassOf :Attachement ;
+:Media a owl:Class ;
+	rdfs:subClassOf :Attachment ;
 	rdfs:label "Media" .
 
-:media_title a rdfs:Property ;
+:media_title a rdf:Property ;
 	rdfs:label "media title" ;
 	rdfs:domain :Media ;
 	rdfs:range xsd:string .
 
-:media_uri a rdfs:Property ;
+:media_uri a rdf:Property ;
 	rdfs:label "media uri" ;
 	rdfs:domain :Media ;
 	rdfs:range xsd:anyURI .
 
-:media_creation_timestamp a rdfs:Property ;
+:media_creation_timestamp a rdf:Property ;
 	rdfs:label "media creation timestamp" ;
 	rdfs:domain :Media ;
 	rdfs:range xsd:dateTime .
 
-:MediaMetadata a rdfs:Class ;
+:MediaMetadata a owl:Class ;
 	rdfs:label "Media Metadata" .
 
-:media_metadata a rdfs:Property ;
+:media_metadata a rdf:Property ;
 	rdfs:label "media metadata" ;
 	rdfs:domain :Media ;
 	rdfs:range :MediaMetadata .
 
-:PhotoMetadata a rdfs:Class ;
+:PhotoMetadata a owl:Class ;
 	rdfs:subClassOf :MediaMetadata ;
 	rdfs:label "Photo Metadata" .
 
-:photo_upload_ip a rdfs:Property ;
+:photo_upload_ip a rdf:Property ;
 	rdfs:label "upload ip" ;
 	rdfs:domain :PhotoMetadata ;
 	rdfs:range xsd:string .
 
 # --- place ---
 
-:Place a rdfs:Class ;
-	rdfs:subClassOf :Attachement ;
+:Place a owl:Class ;
+	rdfs:subClassOf :Attachment ;
 	rdfs:label "Place" .
 
-:place_name a rdfs:Property ;
+:place_name a rdf:Property ;
 	rdfs:label "place name" ;
 	rdfs:domain :Place ;
 	rdfs:range xsd:string .
 
-:PlaceCoordinate a rdfs:Class ;
+:PlaceCoordinate a owl:Class ;
 	rdfs:label "Place Co-ordinate" .
 
-:place_coordinate a rdfs:Property ;
+:place_coordinate a rdf:Property ;
 	rdfs:label "place coordinates" ;
+    rdfs:domain :Place ;
 	rdfs:range :PlaceCoordinate .
 
-:latitude a rdfs:Property ;
+:latitude a rdf:Property ;
 	rdfs:label "latitude" ;
 	rdfs:domain :PlaceCoordinate ;
 	rdfs:range xsd:string .
 
-:longitude a rdfs:Property ;
+:longitude a rdf:Property ;
 	rdfs:label "longitude" ;
 	rdfs:domain :PlaceCoordinate ;
 	rdfs:range xsd:string .
 
-:place_url a rdfs:Property ;
+:place_url a rdf:Property ;
 	rdfs:label "place url" ;
 	rdfs:domain :Place ;
 	rdfs:range xsd:anyURI .
 
-:place_address a rdfs:Property ;
+:place_address a rdf:Property ;
 	rdfs:label "place address" ;
 	rdfs:domain :Place ;
 	rdfs:range xsd:string .
 
 # --- External ---
 
-:External a rdfs:Class ;
-	rdfs:subClassOf :Attachement ;
+:External a owl:Class ;
+	rdfs:subClassOf :Attachment ;
 	rdfs:label "External" .
 
-:external_name a rdfs:Property ;
+:external_name a rdf:Property ;
 	rdfs:label "external name" ;
 	rdfs:domain :External ;
 	rdfs:range xsd:string .
 
-:external_url a rdfs:Property ;
+:external_url a rdf:Property ;
 	rdfs:label "external url" ;
 	rdfs:domain :External ;
 	rdfs:range xsd:anyURI .
